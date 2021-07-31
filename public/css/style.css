@@ -1,0 +1,164 @@
+@charset "utf-8";
+
+/* 全ページ共通 */
+
+/*	Base
+----------------------------------------------------------------------------------*/
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.zf-green {
+    color: #68b604;
+}
+
+.btn-success {
+  background-color: #57a900;
+  background-image: -moz-linear-gradient(top, #70d900, #57a900);
+  background-image: -ms-linear-gradient(top, #70d900, #57a900);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+  background-image: -o-linear-gradient(top, #70d900, #57a900);
+  background-image: linear-gradient(top, #70d900, #57a900);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+  background-color: #57a900;
+}
+
+div.container a.brand {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+}
+/*
+div.container label {
+    width:150px;
+}
+*/
+div.container div.inputLine {
+    padding-bottom: 5px;
+}
+
+div.container div.formBox {
+	width: 80%;
+	margin-bottom: 15px;
+}
+
+div.container div.endUserView label {
+		background-color:#F8F5B1;
+}
+
+/* must */
+div.container span.must {
+    display: inline-block;
+    width: 50px;
+    color: #cc0000;
+}
+
+/* backRed */
+div.container td.backRed {
+	background-color:#FF4242;
+}
+
+/* 見出し */
+div.container .titleBack {
+		background-color:#f5f5f5;
+		padding:5px;
+}
+
+/* text一文字下げ */
+div.container .textInd {
+	text-indent: 1em;
+}
+
+/* 改行 */
+div.container .lineBreak {
+	word-break : break-all;
+}
+
+/* tableの最後のライン */
+div.container .btmLine {
+	border-bottom:1px solid #ddd;
+}
+
+/* 太字 */
+div.container .fontBold {
+	font-weight: bold;
+}
+
+/* 赤字 */
+div.container .fontRed {
+    color: #cc0000;
+}
+
+/* formのエラー文表示 */
+div.container div.formErrors ul {
+	margin-top: 10px;
+	padding-left: 0;
+	list-style: none;
+}
+div.container div.formErrors li {
+    color: #cc0000;
+}
+
+/* ページのメッセージ文表示 */
+div.container div.pageMessage ul {
+	margin-top: 10px;
+	list-style: none;
+	font-size: 110%;
+	background-color: #f3f3f3;
+	padding: 5px;
+}
+div.container div.pageMessage li {
+    color: #cc0000;
+}
+
+/* ページタイトル */
+div.container .pageTitle {
+	margin-bottom: 20px;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+/* ページネーション */
+div.container .paginationControl span {
+	margin-left:5px;
+	margin-right:5px;
+}
+
+div.container .paginationControl .pageCnt {
+	margin-right:15px;
+}
+
+/* アコーディオン */
+div.container .accordion .accordion_head {
+	cursor:pointer;
+}
+div.container .accordion .accordion_head:hover {
+	color:#3399f3;
+}
+
+/* 背景　グレー */
+div.container .bgGray {
+    background-color: #d5d5d5;
+}
+/* 背景　オレンジ */
+div.container .bgOrange {
+    background-color: #FCC283;
+}
+
+/* 背景　オレンジ */
+div.container .textLeft {
+	text-align: left;
+}
