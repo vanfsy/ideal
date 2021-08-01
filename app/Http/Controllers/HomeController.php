@@ -22,6 +22,15 @@ class HomeController extends Controller
 
         $data = session('arrAnswerData');
 
+        if (empty($data)) {
+            $anketo_array = [];
+            foreach ($anketos as $anketo) {
+                $anketo_array[$anketo->id] = null;
+            }
+            $data = array(
+                'name' => null, 'gender' => null, 'branch' => null, 'anketo' => $anketo_array,
+            );
+        }
         return view('index')->with(compact('anketos', 'data'));
     }
 
