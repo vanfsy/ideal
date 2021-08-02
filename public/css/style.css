@@ -162,3 +162,15 @@ div.container .bgOrange {
 div.container .textLeft {
 	text-align: left;
 }
+
+.form-group-with-label label {
+	float: left;
+	margin-top: 8px;
+	margin-right: 18px;
+}
+
+.form-group-with-label span {
+	display: block;
+	overflow: hidden;
+	padding: 0 4px 0 6px;
+}

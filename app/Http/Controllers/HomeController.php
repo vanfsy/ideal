@@ -31,6 +31,9 @@ class HomeController extends Controller
                 'name' => null, 'gender' => null, 'branch' => null, 'anketo' => $anketo_array,
             );
         }
+        if (empty($data)) {
+            $data = [];
+        }
         return view('index')->with(compact('anketos', 'data'));
     }
 
@@ -51,6 +54,9 @@ class HomeController extends Controller
         ], $anketo_validations));
 
         if ($validator->fails()) {
+//            return redirect(route('home'))->withErrors($validator)->withInput();
+//            return redirect()->back()->withErrors($validator)->withInput();
+
             return redirect(route('home'))->withErrors($validator)->withInput();
         } else {
             $data = $request->all();

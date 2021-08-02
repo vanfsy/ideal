@@ -40,7 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img src="https://ic-method.com/ICM/" alt="">&nbsp;Ideal Company Method</a>
+            <a class="navbar-brand" href="/">Ideal Company Method</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -54,7 +54,7 @@
         <h3>Ideal Company Method 【アンケート】</h3>
         <p class="pageTitle fontBold">回答入力</p>
 
-        <p>このアンケートは、23問の「選択方式アンケート」に回答頂くことで、職場環境の改善点を発見し、働きやすくまた働きがいのある理想的な職場 の実現に役立てるためのものです。<br>
+        <p>このアンケートは、23問の「選択方式アンケート」に回答頂くことで、職場環境の改善点を発見し、働きやすくまた働きがいのある理想的な職場の実現に役立てるためのものです。<br>
             今の職場における生活を振り返って、質問に対しての自分の気持ちに近い数字を一つ選択してください。</p>
         <p>このアンケートは「理想の職場環境づくり」のためのものであり、人事評価・その他の目的での利用は一切ありません。<br>
             そのため、安心して、思うこと、普段感じていることを「本音」でお答え下さい。</p>
@@ -78,46 +78,57 @@
 
             <hr>
 
-            <p class="textInd fontBold fontRed"></p>
+            @if(!$errors->isEmpty())
+                <div class="pageMessage">
+                    <ul><li class="fontBold fontRed">すべての項目をご入力下さい（所属部門がない場合は、なしとご入力下さい）</li></ul>
+                </div>
+            @endif
+
+{{--            <p class="textInd fontBold fontRed">すべての項目をご入力下さい（所属部門がない場合は、なしとご入力下さい）</p>--}}
 
             <div class="form-horizontal center-block formBox">
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-7 col-md-7 col-lg-7 control-label textLeft" for="enqAns">お名前</label>
-                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-                        <input type="text" name="name" class="form-control" value="{{ old('name', $data['name']) }}"/>
+                <div class="form-group form-group-with-label">
+                    <label>お名前</label>
+                    <span>
+                        <input type="text" name="name" class="form-control" value="{{ old('name', $data['name']) }}" id="name"/>
                         <div class="formErrors">
                             @if($errors->has('name'))
                                 <ul><li>{{ $errors->first('name') }}</li></ul>
                             @endif
                         </div>
-                    </div>
+                    </span>
+
                 </div>
 
 
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-7 col-md-7 col-lg-7 control-label textLeft" for="enqAns">性別</label>
-                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                <div class="form-group form-group-with-label">
+                    <label>性別</label>
+                    <span>
                         <label class="radio-inline"><input type="radio" name="gender" value="0" @if(old('gender', $data['gender']) == 0) checked @endif>男</label>
                         <label class="radio-inline"><input type="radio" name="gender" value="1" @if(old('gender', $data['gender']) == 1) checked @endif>女</label>
-
                         <div class="formErrors">
                             @if($errors->has('gender'))
                                 <ul><li>{{ $errors->first('gender') }}</li></ul>
                             @endif
                         </div>
-                    </div>
+                    </span>
+
                 </div>
 
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-7 col-md-7 col-lg-7 control-label textLeft" for="enqAns">所属部門</label>
-                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                <div class="form-group form-group-with-label">
+                    <label>所属部門</label>
+                    <span>
                         <input type="text" name="branch" class="form-control" value="{{ old('branch', $data['branch']) }}"/>
+
+                        <p>※所属部門は御社でご指定の名称を正しくご記載下さい</p>
                         <div class="formErrors">
                             @if($errors->has('branch'))
                                 <ul><li>{{ $errors->first('branch') }}</li></ul>
                             @endif
                         </div>
-                    </div>
+                    </span>
+
+
                 </div>
 
             </div>
@@ -125,16 +136,17 @@
             <hr>
 
 
+
             <div class="form-horizontal center-block formBox">
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-7 col-md-7 col-lg-7 control-label" for="enqAns">&nbsp;</label>
-                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">←そう思う&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;そう思わない→</div>
+                    <label class="col-xs-12 col-sm-6 col-md-6 col-lg-6 control-label" for="enqAns">&nbsp;</label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">←そう思う&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;そう思わない→</div>
                 </div>
 
                 @foreach($anketos as $key => $anketo)
                     <div class="form-group">
-                        <label class="col-xs-12 col-sm-7 col-md-7 col-lg-7 control-label textLeft" for="enqAns">Q<?= $anketo->id ?>．<?= $anketo->question ?></label>
-                        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                        <label class="col-xs-12 col-sm-6 col-md-6 col-lg-6 control-label textLeft" for="enqAns">Q<?= $anketo->id ?>．<?= $anketo->question ?></label>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <label class="radio-inline"><input type="radio" name="anketo[<?= $anketo->id ?>]" value="5" @if(old('anketo.' . $anketo->id, $data['anketo'][$anketo->id]) == 5) checked @endif>5</label>
                             <label class="radio-inline"><input type="radio" name="anketo[<?= $anketo->id ?>]" value="4" @if(old('anketo.' . $anketo->id, $data['anketo'][$anketo->id]) == 4) checked @endif>4</label>
                             <label class="radio-inline"><input type="radio" name="anketo[<?= $anketo->id ?>]" value="3" @if(old('anketo.' . $anketo->id, $data['anketo'][$anketo->id]) == 3) checked @endif>3</label>

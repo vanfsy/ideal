@@ -82,11 +82,11 @@ class AnketoSeeder extends Seeder
 
         // 18
         $anketo = new Anketo();
-        $anketo->question = '上司や先輩から髪型・服装・言葉づかいなどで細かく批判されるなど、不公平なあ つかいを受けることがある。'; $anketo->save();
+        $anketo->question = '上司や先輩から髪型・服装・言葉づかいなどで細かく批判されるなど、不公平なあつかいを受けることがある。'; $anketo->save();
 
         // 19
         $anketo = new Anketo();
-        $anketo->question = '私は仕事において、感謝の気持ちを直接言われたり、手紙やメールで伝えられたり することがある。'; $anketo->save();
+        $anketo->question = '私は仕事において、感謝の気持ちを直接言われたり、手紙やメールで伝えられたりすることがある。'; $anketo->save();
 
         // 20
         $anketo = new Anketo();
@@ -94,7 +94,7 @@ class AnketoSeeder extends Seeder
 
         // 21
         $anketo = new Anketo();
-        $anketo->question = '私は上司や先輩に分かりやすく教えてもらったり、厳しく指導してもらったりして 育てられている。'; $anketo->save();
+        $anketo->question = '私は上司や先輩に分かりやすく教えてもらったり、厳しく指導してもらったりして育てられている。'; $anketo->save();
 
         // 22
         $anketo = new Anketo();
